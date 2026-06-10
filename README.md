@@ -36,4 +36,4 @@
 -- -----------------------
 */tests_acid:
     - test_deadlock.py
-    - 
+    - test_transferenciaConcurrente.py
