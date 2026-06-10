@@ -1,3 +1,7 @@
+Instalar:
+- pip check
+- pip install python-dotenv
+
 -- -----------------------
 -- Orden de ejecución:
 -- -----------------------
