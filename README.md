@@ -30,3 +30,10 @@
         (crea una carpeta /backups, y respando_comp.sql)
 
     No esta automatizado, si se quiere solo agregar a Programador de tareas de Windows
+
+-- -----------------------
+-- Tests:
+-- -----------------------
+*/tests_acid:
+    - test_deadlock.py
+    - 

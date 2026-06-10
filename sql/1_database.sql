@@ -94,7 +94,7 @@ CREATE TABLE Transferencias (
 -- Transacciones
 
 CREATE TABLE Transacciones (
-    MovimientoID INT PRIMARY KEY,
+    MovimientoID BIGINT PRIMARY KEY,
 
     TransferenciaID VARCHAR(50) NULL,
 

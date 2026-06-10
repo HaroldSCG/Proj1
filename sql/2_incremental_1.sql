@@ -182,8 +182,8 @@ BEGIN
     DECLARE v_TipoSalida INT;
     DECLARE v_TipoEntrada INT;
 
-    DECLARE v_Mov1 INT;
-    DECLARE v_Mov2 INT;
+    DECLARE v_Mov1 BIGINT;
+    DECLARE v_Mov2 BIGINT;
 
     DECLARE v_TransferenciaID VARCHAR(50);
 
@@ -229,7 +229,8 @@ BEGIN
     SET v_TransferenciaID =
         CONCAT(
             'TRF-',
-            DATE_FORMAT(NOW(),'%Y%m%d%H%i%s')
+            DATE_FORMAT(NOW(6),'%Y%m%d%H%i%s'),
+            LPAD(MICROSECOND(NOW(6)),6,'0')
         );
 
     INSERT INTO Transferencias(
@@ -249,9 +250,10 @@ BEGIN
     SET SaldoActual = SaldoActual + p_Monto
     WHERE CuentaID = p_CuentaDestinoID;
 
-    SELECT IFNULL(MAX(MovimientoID),0) + 1
-    INTO v_Mov1
-    FROM Transacciones;
+    SET v_Mov1 =
+        FLOOR(UNIX_TIMESTAMP(NOW(6)) * 1000000);
+
+    SET v_Mov2 = v_Mov1 + 1;
 
     INSERT INTO Transacciones(
         MovimientoID,
@@ -273,10 +275,6 @@ BEGIN
         p_CuentaOrigenID,
         501
     );
-
-    SELECT IFNULL(MAX(MovimientoID),0) + 1
-    INTO v_Mov2
-    FROM Transacciones;
 
     INSERT INTO Transacciones(
         MovimientoID,
