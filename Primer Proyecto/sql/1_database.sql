@@ -198,7 +198,9 @@ Transferencias simultáneas
 Notas
 Se recomienda ejecutar primero los scripts SQL y posteriormente las migraciones.
 Verificar que el servidor MySQL se encuentre activo antes de ejecutar los scripts Python.
-El proyecto fue desarrollado utilizando MySQL como motor de base de datos relacional y Python para la migración de datos desde archivos CSV.CREATE DATABASE IF NOT EXISTS BancoDB;
+El proyecto fue desarrollado utilizando MySQL como motor de base de datos relacional y Python para la migración de datos desde archivos CSV.
+
+CREATE DATABASE IF NOT EXISTS BancoDB;
 USE BancoDB;
 
 -- CuentaTipo
